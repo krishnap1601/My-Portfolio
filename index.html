@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna Prasad - Professional Portfolio</title>
+    <style>
+        :root { 
+            --neon-blue: #00d2ff; 
+            --neon-purple: #9d50bb;
+            --dark-bg: #0b0e14;
+            --text-white: #e0e6ed;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --bg-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072');
+        }
+
+        .light-mode {
+            --dark-bg: #f4f7f6;
+            --text-white: #1a1f26;
+            --card-bg: rgba(0, 0, 0, 0.05);
+            --bg-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070');
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; transition: 0.4s; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--dark-bg); color: var(--text-white); overflow-x: hidden; }
+
+        /* Navigation */
+        nav { 
+            position: fixed; width: 100%; padding: 15px 10%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            background: rgba(11, 14, 20, 0.9); z-index: 1000; backdrop-filter: blur(10px); 
+        }
+        .light-mode nav { background: rgba(255, 255, 255, 0.9); border-bottom: 1px solid #ddd; }
+        .nav-container { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .nav-profile-pic { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--neon-blue); object-fit: cover; }
+        nav .links a { color: var(--text-white); text-decoration: none; margin-left: 20px; font-weight: 500; font-size: 0.9rem; }
+        nav .links a:hover { color: var(--neon-blue); }
+
+        /* Main Home Section */
+        section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        #home { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), var(--bg-image); background-size: cover; background-attachment: fixed; text-align: center; }
+        
+        h1 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 10px; }
+        h1 span { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
+        p.subtitle { font-size: 1.2rem; letter-spacing: 1px; color: #bdc3c7; }
+
+        /* Logo Styling */
+        .home-logo-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .home-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
+            object-fit: cover;
+            background: var(--dark-bg);
+        }
+
+        /* Resume Modal */
+        .modal { display: none; position: fixed; z-index: 5000; inset: 0; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+        .modal-content { background: var(--dark-bg); border: 2px solid var(--neon-blue); padding: 30px; border-radius: 20px; width: 90%; max-width: 450px; text-align: center; position: relative; }
+        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; color: var(--neon-blue); cursor: pointer; }
+
+        .submit-btn { width: 100%; padding: 15px; background: transparent; border: 2px solid var(--neon-blue); color: var(--neon-blue); font-weight: bold; border-radius: 12px; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .submit-btn:hover { background: var(--neon-blue); color: #000; }
+
+        /* Social Floats */
+        .social-float-container { position: fixed; bottom: 20px; left: 20px; display: flex; gap: 12px; z-index: 2000; }
+        .float-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s; }
+        .float-btn:hover { transform: scale(1.1); }
+        #theme-toggle { position: fixed; bottom: 20px; right: 20px; background: var(--neon-blue); z-index: 2000; border: none; font-size: 20px; cursor: pointer; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeResume()">&times;</span>
+            <h2 style="color: var(--neon-blue);">KRISHNA PRASAD</h2>
+            <p>B.Sc. IT Student | RKT College</p>
+            <hr style="margin: 15px 0; border: 0.1px solid #333;">
+            <p style="text-align: left; font-size: 0.9rem;">First Year IT student with knowledge in C Programming, MySQL, DBMS, and Office Tools.</p>
+            <br>
+            <button class="submit-btn" style="width: auto; padding: 10px 20px;">Download Full CV</button>
+        </div>
+    </div>
+
+    <div class="social-float-container">
+        <a href="https://wa.me/919076264041" target="_blank" class="float-btn" style="background:#25d366;"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="28"></a>
+        <a href="https://www.instagram.com/__krishna_8708?igsh=MWNhOGNrdzFxZm1mdA==" target="_blank" class="float-btn" style="background:linear-gradient(45deg, #f09433, #dc2743, #bc1888);"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" width="28"></a>
+        <a href="https://www.facebook.com/share/1BZBkQW73U/" target="_blank" class="float-btn" style="background:#1877F2;"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" width="28"></a>
+    </div>
+
+    <button id="theme-toggle" class="float-btn" onclick="toggleTheme()">🌙</button>
+
+    <nav>
+        <div class="nav-container" onclick="openResume()">
+            <img src="F:\html\WhatsApp Image 2026-01-16 at 8.41.05 AM.jpeg" alt="KP" class="nav-profile-pic" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'">
+            <div style="font-weight: 900; color: var(--neon-blue);">PORTFOLIO</div>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="F:\html\about.html">About</a>
+            <a href="F:\html\project.html">Projects</a>
+            <a href="F:\html\contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="reveal">
+            <div class="home-logo-container">
+                <img src="C:\Users\Krishna Prasad\OneDrive\Pictures\Camera Roll\Gemini_Generated_Image_75g06j75g06j75g0.png" alt="KP Logo" class="home-logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'">
+            </div>
+            
+            <h1>HI, I AM <span>KRISHNA PRASAD</span></h1>
+            <p class="subtitle">B.Sc. IT Student & Aspiring Web Developer</p>
+            <br>
+            <a href="F:\html\project.html" class="submit-btn" style="width: auto; padding: 12px 30px;">View My Work</a>
+        </div>
+    </section>
+
+    <script>
+        function openResume() { document.getElementById('resumeModal').style.display = 'flex'; }
+        function closeResume() { document.getElementById('resumeModal').style.display = 'none'; }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const btn = document.getElementById('theme-toggle');
+            btn.innerText = document.body.classList.contains('light-mode') ? "☀️" : "🌙";
+        }
+
+        // Animation on Load
+        window.addEventListener('load', () => {
+            document.querySelector('.reveal').classList.add('active');
+        });
+    </script>
+</body>
+</html>
