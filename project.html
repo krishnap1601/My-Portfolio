@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna Prasad - My Projects</title>
+    <style>
+        :root { 
+            --neon-blue: #00d2ff; 
+            --neon-purple: #9d50bb;
+            --dark-bg: #0b0e14;
+            --text-white: #e0e6ed;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--dark-bg); color: var(--text-white); overflow-x: hidden; padding: 50px 10%; }
+
+        h1 { text-align: center; font-size: 3rem; margin-bottom: 50px; text-transform: uppercase; }
+        h1 span { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+        }
+
+        .lang-tag {
+            display: inline-block;
+            background: rgba(157, 80, 187, 0.2);
+            color: var(--neon-purple);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--neon-blue); }
+        .project-card p { font-size: 0.95rem; line-height: 1.6; color: #ccc; margin-bottom: 20px; }
+
+        .btn-container { display: flex; gap: 10px; }
+        
+        .github-btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .github-btn:hover {
+            background: var(--neon-blue);
+            color: #000;
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-home:hover { color: var(--neon-blue); }
+    </style>
+</head>
+<body>
+
+    <h1>My <span>Projects</span></h1>
+
+    <div class="projects-grid">
+        
+        <div class="project-card">
+            <div>
+                <span class="lang-tag">C Language / File Handling</span>
+                <h3>Railway Reservation System</h3>
+                <p>A comprehensive system to manage train bookings, cancellations, and ticket records. It uses File Handling in C to store data permanently and features a user-friendly console menu.</p>
+            </div>
+            <div class="btn-container">
+                <a href="https://github.com/krishnap1601/krishnap1601/tree/main/c%20project/railway%20reservation%20system" target="_blank" class="github-btn">View Code on GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div>
+                <span class="lang-tag">C++ / OOPS</span>
+                <h3>Online Auction System</h3>
+                <p>An object-oriented project built with C++ that allows users to place bids on items. It implements classes, inheritance, and data security to manage bidding logic effectively.</p>
+            </div>
+            <div class="btn-container">
+                <a href="https://github.com/krishnap1601/krishnap1601/tree/main/c%2B%2B%20project" target="_blank" class="github-btn">View Code on GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div>
+                <span class="lang-tag">HTML / CSS / JS</span>
+                <h3>Personal Portfolio</h3>
+                <p>My own personal website to showcase my academic journey at RKT College and my technical skill set. Fully responsive and modern design.</p>
+            </div>
+            <div class="btn-container">
+                <a href="F:\html\index.html" class="github-btn">Source Code</a>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-home">← Back to Main Portfolio</a>
+
+</body>
+</html>

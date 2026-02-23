@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Krishna Prasad</title>
+    <style>
+        :root {
+            --neon-blue: #00d2ff;
+            --neon-purple: #9d50bb;
+            --bg-dark: #05080a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .bg-animate {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #05080a 100%);
+            z-index: -1;
+        }
+
+        .contact-wrapper {
+            width: 90%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            animation: slideUp 1s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-info h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        .icon-box {
+            width: 50px; height: 50px;
+            background: rgba(0, 210, 255, 0.1);
+            border-radius: 15px;
+            display: flex; justify-content: center; align-items: center;
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-box input, .input-box textarea {
+            width: 100%;
+            padding: 12px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            color: #fff;
+            font-size: 1.1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-box label {
+            position: absolute;
+            left: 0; top: 12px;
+            color: rgba(255,255,255,0.5);
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus ~ label,
+        .input-box input:valid ~ label,
+        .input-box textarea:focus ~ label,
+        .input-box textarea:valid ~ label {
+            top: -15px;
+            font-size: 0.9rem;
+            color: var(--neon-blue);
+        }
+
+        .send-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.5);
+        }
+
+        #success-overlay {
+            display: none;
+            text-align: center;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            display: inline-block;
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animate"></div>
+
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h1>Let's Connect</h1>
+            <p style="color: #aaa; margin-bottom: 40px;">B.Sc. IT Student at RKT College. Reach out to me directly!</p>
+            
+            <div class="info-item">
+                <div class="icon-box">📍</div>
+                <div>
+                    <p style="font-size: 0.8rem; color: #777;">Location</p>
+                    <p>Dombivli, Maharashtra</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon-box">📧</div>
+                <div>
+                    <p style="font-size: 0.8rem; color: #777;">Email</p>
+                    <p>krishnaprasad8708@gmail.com</p>
+                </div>
+            </div>
+            
+            <a href="index.html" class="back-btn">← Back to Portfolio</a>
+        </div>
+
+        <div class="contact-form-container">
+            <form id="mainContactForm" onsubmit="sendForm(event)">
+                <div class="input-box">
+                    <input type="text" name="name" required>
+                    <label>Full Name</label>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" required>
+                    <label>Your Email Address</label>
+                </div>
+                <div class="input-box">
+                    <textarea name="message" rows="4" required></textarea>
+                    <label>Message Krishna...</label>
+                </div>
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+
+            <div id="success-overlay">
+                <div style="font-size: 4rem;">📩</div>
+                <h2 style="color: var(--neon-blue);">Message Sent!</h2>
+                <p>Thank you Krishna, your message has been recorded.</p>
+                <button onclick="location.reload()" class="send-btn" style="margin-top:20px; width:auto; padding: 10px 30px;">Send Another</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('mainContactForm');
+            const success = document.getElementById('success-overlay');
+            
+            // Yahan animation trigger hoga
+            form.style.display = 'none';
+            success.style.display = 'block';
+            
+            console.log("Form submitted to: krishnaprasad8708@gmail.com");
+        }
+    </script>
+</body>
+</html>

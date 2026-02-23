@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --neon-blue: #00d2ff;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --text-color: #e0e6ed;
+        }
+
+        body {
+            background-color: #0b0e14;
+            color: var(--text-color);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .about-section {
+            max-width: 900px;
+            background: var(--glass-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about-header h2 {
+            font-size: 2.5rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #bdc3c7;
+        }
+
+        .highlight {
+            color: var(--neon-blue);
+            font-weight: bold;
+        }
+
+        /* Skills Grid */
+        .skills-container {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--neon-blue);
+            padding: 10px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--neon-blue);
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        .college-info {
+            margin-top: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--neon-blue);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* Back Button Style */
+        .back-btn-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.4s;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background: var(--neon-blue);
+            color: #0b0e14;
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="about-section">
+        <div class="about-header">
+            <h2>About <span>Me</span></h2>
+        </div>
+
+        <div class="about-content">
+            <p>
+                Hello! I'm <span class="highlight">Krishna</span>, a passionate tech enthusiast currently pursuing my 
+                <span class="highlight">First Year in B.Sc. IT</span> at <span class="highlight">RKT College</span>. 
+                I have a deep interest in how data and software shape the modern world.
+            </p>
+
+            <div class="college-info">
+                During my <strong>First Semester</strong>, I've built a strong foundation in core IT concepts, 
+                learning how to manage data, write logic, and create professional documentation.
+            </div>
+
+            <h3 style="margin-top: 30px; color: var(--neon-blue);">What I've Learned So Far:</h3>
+            
+            <div class="skills-container">
+                <div class="skill-tag">C Programming</div>
+                <div class="skill-tag">MySQL</div>
+                <div class="skill-tag">DBMS</div>
+                <div class="skill-tag">Office Tools</div>
+                <div class="skill-tag">MS PowerPoint</div>
+                <div class="skill-tag">Database Logic</div>
+            </div>
+
+            <p style="margin-top: 30px;">
+                I am constantly looking for opportunities to apply my skills in real-world projects 
+                and eager to explore advanced technologies in the upcoming semesters.
+            </p>
+
+            <div class="back-btn-container">
+                <a href="index.html" class="back-btn">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
